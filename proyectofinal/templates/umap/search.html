@@ -1,0 +1,18 @@
+{% extends "umap/content.html" %}
+
+{% load i18n %}
+
+{% block maincontent %}
+{% include "umap/search_bar.html" %}
+{% if q %}
+  <div class="wrapper">
+    <div class="map_list row">
+    {% if maps %}
+      {% include "umap/map_list.html" with prefix='search_map' %}
+    {% else %}
+        {% trans "Not map found." %}
+    {% endif %}
+    </div>
+  </div>
+{% endif %}
+{% endblock maincontent %}
